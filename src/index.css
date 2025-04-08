@@ -64,6 +64,15 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 20px;
+  text-shadow:
+    0 0 8px rgba(30, 150, 110, 0.8),
+    /* Increased blur and intensity for inner glow */
+    0 0 20px rgba(30, 150, 110, 0.7),
+    /* Increased blur and intensity for medium glow */
+    0 0 35px rgba(30, 150, 110, 0.5),
+    /* Increased blur for outer glow */
+    0 0 50px rgba(30, 150, 110, 0.3);
+  /* Added another layer for further spread */
 }
 
 .hero-description {

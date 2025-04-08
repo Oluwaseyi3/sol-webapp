@@ -6,6 +6,7 @@ import Button from './components/Button';
 import Card from './components/Card';
 import usdt from "./images/usdt.svg";
 import fx from "./images/fx.jpg";
+import red from "./images/red.jpg"
 import { motion } from 'framer-motion'; // Import motion
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome
 import { faUser, faEnvelope, faMessage } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
@@ -182,34 +183,123 @@ function App() {
       </motion.div>
 
       {/* --- How It Works Section --- */}
-      <div className='how-it-works flex flex-col md:flex-row justify-around items-center pt-[100px] md:pt-[200px]'>
-        {/* Text part container */}
-        <motion.div
-          {...whileInViewSettings}
-          variants={fadeInUp}
-        >
-          <h1 className='how-it-works-title pb-10'>HOW IT WORKS</h1>
-          <div className='how-it-works-text'>
-            <p>- 5% tax collected from every transaction</p>
-            <p>- Tax automatically converted to USDT</p>
-            <p>- Automatically distributes 80% (4%) of all tax collected to all holders of $CASH</p>
-            <p>- 10% (0.5%) of all tax collected goes to daily buybacks</p>
-            <p>- Remaining 10% (0.5%) goes towards further marketing and development</p>
-            <p>- Buyback, marketing, and development funding ensures continued price support and promotional <br />activities compared to similar reward tokens with no such budgets.</p>
-            <p>- Rewards are proportionate to your holdings</p>
+      {/* --- How It Works Section --- */}
+      <motion.div
+        className='how-it-works py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 rounded-xl mx-4 md:mx-8 lg:mx-16'
+        {...whileInViewSettings}
+      >
+        <div className="container mx-auto">
+          <motion.h2
+            className='text-4xl md:text-5xl font-bold text-center mb-16 text-green-400'
+            variants={fadeInUp}
+          >
+            HOW IT WORKS
+          </motion.h2>
+
+          <div className='flex flex-col lg:flex-row items-center justify-between px-6 md:px-12'>
+            {/* Left side - Visual representation */}
+            <motion.div
+              className="w-full lg:w-2/5 mb-12 lg:mb-0"
+              initial={{ opacity: 0, scale: 0.7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <div className="relative">
+                <img
+                  src={red}
+                  alt="Solana Cash Machine Process"
+                  className='rounded-xl shadow-2xl shadow-green-400/20 w-full object-cover'
+                />
+                <div className="absolute -bottom-6 -right-6 bg-green-400 text-black font-bold py-3 px-6 rounded-lg shadow-lg text-lg">
+                  AUTOMATIC REWARDS
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right side - Steps with icons */}
+            <motion.div
+              className="w-full lg:w-1/2"
+              variants={staggerContainer}
+              {...whileInViewSettings}
+            >
+              {/* Step 1 */}
+              <motion.div
+                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
+                variants={fadeInUp}
+              >
+                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
+                  <span className="font-bold text-xl">1</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-white">Transaction Tax</h3>
+                  <p className="text-gray-300">5% tax is collected from every buy and sell transaction</p>
+                </div>
+              </motion.div>
+
+              {/* Step 2 */}
+              <motion.div
+                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
+                variants={fadeInUp}
+              >
+                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
+                  <span className="font-bold text-xl">2</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-white">USDT Conversion</h3>
+                  <p className="text-gray-300">All collected tax is automatically converted to USDT</p>
+                </div>
+              </motion.div>
+
+              {/* Step 3 */}
+              <motion.div
+                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
+                variants={fadeInUp}
+              >
+                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
+                  <span className="font-bold text-xl">3</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-white">Distribution</h3>
+                  <p className="text-gray-300">
+                    <span className="text-green-400 font-bold">80% (4%)</span> distributed to all $CASH holders<br />
+                    <span className="text-green-400 font-bold">10% (0.5%)</span> allocated for daily buybacks<br />
+                    <span className="text-green-400 font-bold">10% (0.5%)</span> for marketing and development
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Step 4 */}
+              <motion.div
+                className="flex items-start bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
+                variants={fadeInUp}
+              >
+                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
+                  <span className="font-bold text-xl">4</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-white">Automatic Rewards</h3>
+                  <p className="text-gray-300">Rewards are automatically distributed every 5 minutes based on your proportional holdings</p>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </motion.div>
-        {/* Image part container */}
-        <motion.div
-          {...whileInViewSettings}
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          <img src={fx} alt='' className='how-it-works-image md:h-[300px] h-[200px] mt-20 rounded-lg' />
-        </motion.div>
-      </div>
+
+          {/* Additional information */}
+          <motion.div
+            className="mt-16 text-center px-6"
+            variants={fadeInUp}
+            {...whileInViewSettings}
+          >
+            <div className="inline-block bg-green-400/10 border border-green-400 rounded-lg p-6">
+              <p className="text-green-400 font-medium">
+                Unlike similar tokens, $CASH includes dedicated buyback and marketing funds to ensure
+                continued price support and promotional activities for long-term sustainability.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* --- Stats Section --- */}
       <motion.div
@@ -287,16 +377,110 @@ function App() {
       </motion.div>
 
       {/* --- Final Details Section --- */}
+      {/* --- Final Details Section --- */}
       <motion.div
-        className='final-details px-5 md:px-10 text-green-400 py-10 mt-10'
+        className='final-details py-20 md:py-28 px-4 md:px-8 lg:px-16'
         variants={staggerContainer}
         {...whileInViewSettings}
       >
-        <motion.p className='py-5' variants={fadeInUp}>- 100% of the total supply is added to liquidity at launch then LP tokens are locked, with no team tokens, no presale, and no max wallet limits.</motion.p>
-        <motion.p className='py-5' variants={fadeInUp}>- This ensures that this token can NEVER be rug-pulled.</motion.p>
-        <motion.p className='py-5' variants={fadeInUp}>- The 5% tax on transactions is automatically distributed every 5 minutes according to the terms mentioned above.</motion.p>
-        <motion.p className='py-5' variants={fadeInUp}>- Launch is 100% fair. Even core devs and team members need to buy on the open market if they wish to hold tokens and receive rewards.</motion.p>
-        <motion.p className='py-5' variants={fadeInUp}>- Wallets need to have .01 usdt in pending rewards before they are released to the wallet for economic reasons (e.g., gas costs).</motion.p>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400"
+          variants={fadeInUp}
+        >
+          COMMITMENT TO TRANSPARENCY
+        </motion.h2>
+
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            {...whileInViewSettings}
+          >
+            {/* Card 1 */}
+            <motion.div
+              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center mb-4">
+                <div className="bg-green-400 p-2 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">100% Fair Launch</h3>
+              </div>
+              <p className="text-gray-300">
+                100% of the total supply is added to liquidity at launch with LP tokens locked. No team tokens, no presale, and no max wallet limits.
+              </p>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center mb-4">
+                <div className="bg-green-400 p-2 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">Anti-Rug Protection</h3>
+              </div>
+              <p className="text-gray-300">
+                Our locked liquidity and fair launch model ensures that this token can NEVER be rug-pulled, providing security for all holders.
+              </p>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center mb-4">
+                <div className="bg-green-400 p-2 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">Automatic Distribution</h3>
+              </div>
+              <p className="text-gray-300">
+                The 5% tax on transactions is automatically distributed every 5 minutes according to the formula outlined in our tokenomics.
+              </p>
+            </motion.div>
+
+            {/* Card 4 */}
+            <motion.div
+              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center mb-4">
+                <div className="bg-green-400 p-2 rounded-lg mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white">Reward Threshold</h3>
+              </div>
+              <p className="text-gray-300">
+                Wallets need to accumulate 0.01 USDT in pending rewards before distribution for economic efficiency (reducing gas costs).
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* Highlight Box */}
+          <motion.div
+            className="mt-12 bg-green-400/10 border-l-4 border-green-400 rounded-r-lg p-6"
+            variants={fadeInUp}
+            {...whileInViewSettings}
+          >
+            <h4 className="text-xl font-bold text-white mb-3">Equal Opportunity for All</h4>
+            <p className="text-gray-300">
+              Launch is 100% fair - even core developers and team members must purchase tokens on the open market if they wish to hold $CASH and receive rewards. This ensures complete alignment of incentives between the team and the community.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* --- Final Social Links --- */}
@@ -315,6 +499,33 @@ function App() {
           <span className="font-bold text-base transition-all duration-300 ease-in-out group-hover:hidden">Twitter</span>
         </motion.a>
       </motion.div>
+
+      {/* --- Footer Section --- */}
+      <footer className="bg-[#1a1a1a] text-gray-400 py-10 ">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="md:flex md:items-center md:justify-between">
+            {/* Left side - Copyright */}
+            <div className="mb-4 md:mb-0">
+              &copy; {new Date().getFullYear()} Solana Cash Machine. All rights reserved.
+            </div>
+
+            {/* Right side - Social Links */}
+            <div className="flex items-center space-x-4">
+              <a href="https://t.me/SolanaCashMachine" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Telegram
+              </a>
+              <a href="https://x.com/SOLCashMachine" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Twitter
+              </a>
+              {/* You can add more social media links here */}
+            </div>
+          </div>
+          <p className="mt-6 text-center text-xs text-gray-500">
+            Disclaimer: Cryptocurrency investments are highly risky and may lead to financial loss. Please do your own research before investing.
+          </p>
+        </div>
+      </footer>
+
 
     </div>
   );

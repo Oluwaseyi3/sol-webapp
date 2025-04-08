@@ -11,6 +11,20 @@
     /* Ensure cards take full width in their container */
     max-width: 350px;
     /* Set a maximum width */
+    /* Add the glowing neon green gradient shadow */
+    box-shadow: 0 0 15px rgba(52, 211, 164, 0.7),
+        /* Inner glow */
+        0 0 25px rgba(52, 211, 164, 0.5),
+        /* Medium glow */
+        0 0 40px rgba(52, 211, 164, 0.3),
+        /* Outer glow */
+        0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Keep the original subtle shadow */
+    /* Add fixed height */
+    height: 200px;
+    /* Adjust this value as needed */
+    overflow: hidden;
+    /* Optional: Hide content that overflows the fixed height */
 }
 
 .card:hover {
