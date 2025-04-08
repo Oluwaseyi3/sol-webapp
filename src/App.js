@@ -23,26 +23,26 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white font-sans overflow-hidden">
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
-        <div className="container mx-auto px-6 flex items-center justify-between">
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-4 lg:py-6'}`}>
+        <div className="container mx-auto px-4 lg:px-6 flex items-center justify-between">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-green-400">$CASH</h1>
+            <h1 className="text-xl lg:text-2xl font-bold text-green-400">$CASH</h1>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             <a href="#how-it-works" className="hover:text-green-400 transition-colors">How It Works</a>
             <a href="#tokenomics" className="hover:text-green-400 transition-colors">Tokenomics</a>
             <a href="#stats" className="hover:text-green-400 transition-colors">Stats</a>
-            <a href="#casino" className="hover:text-green-400 transition-colors">Casino</a>
+
             <a href="#contact" className="hover:text-green-400 transition-colors">Contact</a>
             <a href="#faq" className="hover:text-green-400 transition-colors">FAQ</a>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="hidden md:block px-4 py-2 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-black transition-all duration-300">
+          <div className="flex items-center space-x-2 lg:space-x-4">
+            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="hidden lg:block px-4 py-2 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-black transition-all duration-300">
               Chart
             </a>
-            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-6 py-2 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-3 py-2 lg:px-6 lg:py-2 bg-green-400 text-black text-sm lg:text-base font-medium rounded-md hover:bg-green-500 transition-all duration-300">
               Buy Now
             </a>
           </div>
@@ -50,45 +50,48 @@ function App() {
       </nav>
 
       {/* Hero Section with Animated Gradient Background */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section with Animated Gradient Background */}
+      <div className="relative min-h-screen flex lg:items-center items-start pt-16 lg:pt-0 overflow-hidden">
         {/* Background Animation */}
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute w-full h-[500px] bottom-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-          <div className="absolute w-full md:w-3/4 h-[2px] top-1/2 left-0 bg-gradient-to-r from-green-400 to-blue-500 blur-sm"></div>
-          <div className="absolute w-full md:w-1/2 h-[3px] top-[55%] left-0 bg-gradient-to-r from-purple-500 to-green-400 blur-md"></div>
-          <div className="absolute w-full md:w-2/3 h-[2px] top-[60%] left-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-sm"></div>
+          <div className="absolute w-full lg:w-3/4 h-[2px] top-1/2 left-0 bg-gradient-to-r from-green-400 to-blue-500 blur-sm"></div>
+          <div className="absolute w-full lg:w-1/2 h-[3px] top-[55%] left-0 bg-gradient-to-r from-purple-500 to-green-400 blur-md"></div>
+          <div className="absolute w-full lg:w-2/3 h-[2px] top-[60%] left-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-sm"></div>
         </div>
 
-        <div className="container mx-auto px-6 z-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+        <div className="container mx-auto px-4 lg:px-6 z-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
                 Solana Cash Machine
                 <span className="block text-green-400 mt-2">USDT Rewards Every 5 Minutes</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-300">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-300">
                 The world's fastest automatic rewards system on Solana. Distributing $USDT to ALL holders every few minutes - just hold to earn.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-6">
-                <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-8 py-3 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+              <div className="flex flex-wrap gap-3 lg:gap-4 pt-4 lg:pt-6">
+                <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="w-full sm:w-auto px-6 py-3 bg-green-400 text-black text-center font-medium rounded-md hover:bg-green-500 transition-all duration-300">
                   Buy $CASH Now
                 </a>
-                <a href="https://t.me/SolanaCashMachine" className="px-8 py-3 border border-white/30 hover:border-green-400 rounded-md hover:bg-black/30 transition-all duration-300">
+                <a href="https://t.me/SolanaCashMachine" className="w-full sm:w-auto px-6 py-3 border border-white/30 text-center hover:border-green-400 rounded-md hover:bg-black/30 transition-all duration-300">
                   Join Community
                 </a>
               </div>
 
-              <div className="pt-6">
+              <div className="pt-4 lg:pt-6">
                 <p className="text-sm text-gray-400">Contract Address:</p>
-                <p className="text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1">
-                  CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK
-                </p>
+                <div className="overflow-hidden">
+                  <p className="text-xs sm:text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1 overflow-auto whitespace-nowrap">
+                    CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="relative hidden md:block">
+            <div className="relative hidden lg:block">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-purple-500 rounded-lg blur opacity-30"></div>
               <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-lg">
                 <div className="flex items-center justify-between mb-8">
@@ -100,11 +103,11 @@ function App() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <span className="text-gray-400">Next Distribution</span>
-                      <span className="font-medium">04:32</span>
+                      <span className="font-medium">mins</span>
                     </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2">
+                    {/* <div className="w-full bg-gray-800 rounded-full h-2">
                       <div className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full" style={{ width: '65%' }}></div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
@@ -137,9 +140,9 @@ function App() {
         </div>
 
         {/* Trusted By */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div id="featured-on-section" className="absolute bottom-0 left-0 right-0 z-20 short:hidden">
           <div className="container mx-auto px-6 py-12">
-            <p className="text-center text-gray-500 mb-6 text-sm">FEATURED ON</p>
+            <p className="text-center text-gray-500 mb-6 pt-5 text-sm">FEATURED ON</p>
             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
               <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
                 <span className="text-xl font-medium">DexTools</span>

@@ -83,6 +83,12 @@ body {
   margin-bottom: 30px;
 }
 
+@media (max-height: 750px) {
+  .short\:hidden {
+    display: none;
+  }
+}
+
 .hero-buttons .button {
   /* Assuming your Button component adds a "button" class */
   padding: 12px 24px;
