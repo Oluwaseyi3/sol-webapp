@@ -1,532 +1,564 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css'; // Your base CSS
-import cash from "./images/cash.png";
-import Button from './components/Button';
-import Card from './components/Card';
-import usdt from "./images/usdt.svg";
-import fx from "./images/fx.jpg";
-import red from "./images/red.jpg"
-import { motion } from 'framer-motion'; // Import motion
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome
-import { faUser, faEnvelope, faMessage } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-
-  // Simple fade-in-up animation variant
+  // Animation settings for sections to animate when they come into view
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
   };
 
-  // Container variant for staggering children
-  const staggerContainer = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.15, // Adjust stagger delay as needed
-      },
-    },
-  };
+  // Control navbar transparency on scroll
+  const [scrolled, setScrolled] = useState(false);
 
-  // Animation settings for elements entering viewport
-  const whileInViewSettings = {
-    initial: "initial",
-    whileInView: "animate",
-    viewport: { once: true, amount: 0.2 }, // Animate once when 20% is visible
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    // Root container: Keeps original classes + overflow-x-hidden for animation safety
-    <div className='h-[100%] w-full bg-black text-white font-spacemono px-[50px] overflow-x-hidden'>
-      {/* Hero Section */}
-      <div className="hero-container flex flex-col lg:flex-row justify-around text-left items-center pt-20 gap-5 text-center md:text-left">
-        {/* --- Hero Text Section Animation --- */}
-        <motion.div
-          className='flex-1' // Ensure it takes up available space
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        >
-          <h1 className='hero-title'>
-            SOLANA CASH MACHINE
-          </h1>
-          <motion.div
-            className='hero-description md:text-2xl text-lg pt-10 flex flex-col gap-5 mx-auto px-2'
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.p variants={fadeInUp}><span className='text-green-400'></span> – The world’s fastest rewards system for <span className='text-green-400'>$USDT</span> on Solana!</motion.p>
-            <motion.p variants={fadeInUp}> – The Solana Cash Machine distributes <span className='text-green-400'>$USDT</span> to ALL holders every few minutes.</motion.p>
-          </motion.div>
-          <motion.div
-            className='hero-buttons pt-20 flex md:flex-row flex-col items-center gap-5'
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            transition={{ staggerChildren: 0.1, delayChildren: 0.5 }}
-          >
-            <motion.div variants={fadeInUp}>
-              <Button type="Buy $CASH now" link="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="button" /> {/* Add className */}
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <Button type="Refer and Earn" link="https://t.me/CASHRefBot" className="button" /> {/* Add className */}
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <Button type="Play $CASH Casino" link="https://solcashmachine.ngrok.app/" className="button" /> {/* Add className */}
-            </motion.div>
-          </motion.div>
-          <motion.p
-            className='hero-ca md:text-base text-center md:text-left text-xs pt-10 mx-auto'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-          >
-            CA: CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK
-          </motion.p>
-          <motion.div
-            className='hero-social flex flex-row gap-5 pt-10 md:justify-start justify-center'
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            transition={{ staggerChildren: 0.1, delayChildren: 1.0 }}
-          >
-            <motion.a variants={fadeInUp} href="https://t.me/SolanaCashMachine" className="group relative flex items-center justify-start px-3 w-[130px] h-[50px] gap-2 bg-sky-500 text-white rounded-xl border-none cursor-pointer overflow-hidden">
-              <svg className="w-[23px] h-[23px] transition-transform duration-800 ease-in-out group-hover:ml-10 group-hover:rotate-[50deg]" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g transform="scale(5.12,5.12)"><path d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z" /></g></svg>
-              <span className="text-white font-bold text-base transition-all duration-300 ease-in-out group-hover:hidden">Telegram</span>
-            </motion.a>
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white font-sans overflow-hidden">
+      {/* Navbar */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center">
+            <h1 className="text-2xl font-bold text-green-400">$CASH</h1>
+          </div>
 
-            <motion.a variants={fadeInUp} href='https://x.com/SOLCashMachine' className="group relative flex items-center justify-start px-3 w-[130px] h-[50px] gap-2 bg-white text-black rounded-xl border-none cursor-pointer overflow-hidden">
-              <svg className="w-[23px] h-[23px] transition-transform duration-800 ease-in-out group-hover:ml-10 group-hover:rotate-[50deg]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20.207 3H17.1L12.92 8.227 8.4 3H3l7.92 9.486L3 21h3.106l4.602-5.813L15.6 21h5.4l-8.148-9.77L20.207 3ZM16.5 19.5l-4.852-5.828-1.385 1.773-3.779 4.055H7.5l5.484-6.602L7.5 4.5h1.5l4.398 5.283 1.265-1.605 3.984-4.178h1.5l-5.535 6.543L16.5 19.5Z" /></svg>
-              <span className="font-bold text-base transition-all duration-300 ease-in-out group-hover:hidden">Twitter</span>
-            </motion.a>
-          </motion.div>
-        </motion.div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#how-it-works" className="hover:text-green-400 transition-colors">How It Works</a>
+            <a href="#tokenomics" className="hover:text-green-400 transition-colors">Tokenomics</a>
+            <a href="#stats" className="hover:text-green-400 transition-colors">Stats</a>
+            <a href="#casino" className="hover:text-green-400 transition-colors">Casino</a>
+            <a href="#contact" className="hover:text-green-400 transition-colors">Contact</a>
+            <a href="#faq" className="hover:text-green-400 transition-colors">FAQ</a>
+          </div>
 
-        {/* --- Hero Image --- */}
-        <motion.div
-          className='flex-1 flex justify-center lg:justify-end'
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-        >
-          {/* Add your hero image here */}
-          <img src={fx} alt="Solana Cash Machine" className='md:h-[350px] h-[250px] object-contain rounded-lg shadow-lg' />
-        </motion.div>
+          <div className="flex items-center space-x-4">
+            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="hidden md:block px-4 py-2 border border-green-400 text-green-400 rounded-md hover:bg-green-400 hover:text-black transition-all duration-300">
+              Chart
+            </a>
+            <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-6 py-2 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section with Animated Gradient Background */}
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Animation */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="absolute w-full h-[500px] bottom-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+          <div className="absolute w-full md:w-3/4 h-[2px] top-1/2 left-0 bg-gradient-to-r from-green-400 to-blue-500 blur-sm"></div>
+          <div className="absolute w-full md:w-1/2 h-[3px] top-[55%] left-0 bg-gradient-to-r from-purple-500 to-green-400 blur-md"></div>
+          <div className="absolute w-full md:w-2/3 h-[2px] top-[60%] left-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-sm"></div>
+        </div>
+
+        <div className="container mx-auto px-6 z-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                Solana Cash Machine
+                <span className="block text-green-400 mt-2">USDT Rewards Every 5 Minutes</span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-gray-300">
+                The world's fastest automatic rewards system on Solana. Distributing $USDT to ALL holders every few minutes - just hold to earn.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-6">
+                <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-8 py-3 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+                  Buy $CASH Now
+                </a>
+                <a href="https://t.me/SolanaCashMachine" className="px-8 py-3 border border-white/30 hover:border-green-400 rounded-md hover:bg-black/30 transition-all duration-300">
+                  Join Community
+                </a>
+              </div>
+
+              <div className="pt-6">
+                <p className="text-sm text-gray-400">Contract Address:</p>
+                <p className="text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1">
+                  CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK
+                </p>
+              </div>
+            </div>
+
+            <div className="relative hidden md:block">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-purple-500 rounded-lg blur opacity-30"></div>
+              <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-lg">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-xl font-medium">Real-Time Rewards</h3>
+                  <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm">LIVE</span>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-gray-400">Next Distribution</span>
+                      <span className="font-medium">04:32</span>
+                    </div>
+                    <div className="w-full bg-gray-800 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full" style={{ width: '65%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
+                      <p className="text-gray-400 text-sm">Total Rewards</p>
+                      <p className="text-xl font-medium mt-1">15,426 USDT</p>
+                    </div>
+                    <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
+                      <p className="text-gray-400 text-sm">Holders</p>
+                      <p className="text-xl font-medium mt-1">2,184</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-400/10 border border-green-400/30 rounded-lg p-4">
+                    <div className="flex items-start">
+                      <div className="bg-green-400 p-1 rounded-md mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <p className="text-sm text-gray-300">
+                        Your rewards are proportional to your holdings. The more $CASH you hold, the more $USDT you earn.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Trusted By */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <div className="container mx-auto px-6 py-12">
+            <p className="text-center text-gray-500 mb-6 text-sm">FEATURED ON</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+                <span className="text-xl font-medium">DexTools</span>
+              </div>
+              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+                <span className="text-xl font-medium">DexScreener</span>
+              </div>
+              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+                <span className="text-xl font-medium">GMGN</span>
+              </div>
+              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+                <span className="text-xl font-medium">Solana FM</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* --- DexTools Links Section --- */}
-      <motion.div
-        className='dextools-links px-10 font-bold text-3xl  pt-[10px] py-5 md:pt-[40px] flex flex-col items-center md:flex-row justify-around text-green-400'
-        variants={staggerContainer}
-        {...whileInViewSettings}
-      >
-        <motion.a variants={fadeInUp} href="https://www.dextools.io/app/en/solana/pair-explorer/Fqti16kJDid3uEJr3y81xrsN6PgzkeD9g7c5JhNfpaW6?t=1744018404578"><p className='hover:text-white transition-colors'>DexTools</p></motion.a>
-        <motion.a variants={fadeInUp} href='https://gmgn.ai/sol/token/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK'><p className='hover:text-white transition-colors'>GMGN</p></motion.a>
-        <motion.a variants={fadeInUp} href='https://dexscreener.com/solana/fqti16kjdid3uejr3y81xrsn6pgzked9g7c5jhnfpaw6'><p className='hover:text-white transition-colors'>DexScreener</p></motion.a>
-      </motion.div>
-
-      {/* --- Cards Section --- */}
-      <motion.div
-        className='flex md:flex-row flex-col items-center md:items-start justify-between gap-[40px] flex-wrap pb-20 mt-10'
-        variants={staggerContainer}
-        {...whileInViewSettings}
-      >
-        <motion.div variants={fadeInUp}>
-          <Card title="Fast Rewards" description="Receive USDT rewards automatically " second="every few minutes. Just 'hodl' to earn." />
-        </motion.div>
-        <motion.div variants={fadeInUp}>
-          <Card title="Price Is Irrelevant" description="Rewards are independent of the volatile " second="token price. Stack $CASH and earn." />
-        </motion.div>
-        <motion.div variants={fadeInUp}>
-          <Card title="Play Games" description="Earn more $CASH by spending" second=" $CASH in the $CASH Casino." />
-        </motion.div>
-        <motion.div variants={fadeInUp}>
-          <Card title="Compound & Earn" description="Reinvest your $USDT rewards to " second="maximize earnings. Stack and earn." />
-        </motion.div>
-        <motion.div variants={fadeInUp}>
-          <Card title="Buybacks & Marketing" description="$CASH has ongoing buybacks and " second="marketing support, unlike competitors." />
-        </motion.div>
-      </motion.div>
-
-      {/* Note */}
-      <motion.div
-        className='text-center text-sm text-green-400 '
-        {...whileInViewSettings}
-        variants={fadeInUp}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        *Distributions go out every 5 minutes unless volume doesn’t justify the expense. In that case, rewards accumulate for another epoch.
-      </motion.div>
-
-      {/* --- Fair Launch Section --- */}
-      <motion.div
-        className='fair-launch md:text-5xl text-3xl pt-[100px] text-center'
-        {...whileInViewSettings}
-        variants={fadeInUp}
-      >
-        REAL FAIR LAUNCH
-      </motion.div>
-
-      {/* Points container */}
-      <motion.div
-        className='fair-launch-points flex flex-col text-center gap-3 md:flex-row md:text-3xl text-lg justify-around md:pt-[100px] pt-[70px] '
-        variants={staggerContainer}
-        {...whileInViewSettings}
-      >
-        <motion.p variants={fadeInUp}>NO TEAM TOKENS!</motion.p>
-        <motion.p variants={fadeInUp}>NO PRESALE!</motion.p>
-        <motion.p variants={fadeInUp}>NO MAX WALLET LIMITS!</motion.p>
-      </motion.div>
-
-      {/* --- How It Works Section --- */}
-      {/* --- How It Works Section --- */}
-      <motion.div
-        className='how-it-works py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 rounded-xl mx-4 md:mx-8 lg:mx-16'
-        {...whileInViewSettings}
-      >
-        <div className="container mx-auto">
-          <motion.h2
-            className='text-4xl md:text-5xl font-bold text-center mb-16 text-green-400'
-            variants={fadeInUp}
-          >
-            HOW IT WORKS
-          </motion.h2>
-
-          <div className='flex flex-col lg:flex-row items-center justify-between px-6 md:px-12'>
-            {/* Left side - Visual representation */}
-            <motion.div
-              className="w-full lg:w-2/5 mb-12 lg:mb-0"
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="relative">
-                <img
-                  src={red}
-                  alt="Solana Cash Machine Process"
-                  className='rounded-xl shadow-2xl shadow-green-400/20 w-full object-cover'
-                />
-                <div className="absolute -bottom-6 -right-6 bg-green-400 text-black font-bold py-3 px-6 rounded-lg shadow-lg text-lg">
-                  AUTOMATIC REWARDS
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right side - Steps with icons */}
-            <motion.div
-              className="w-full lg:w-1/2"
-              variants={staggerContainer}
-              {...whileInViewSettings}
-            >
-              {/* Step 1 */}
-              <motion.div
-                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
-                variants={fadeInUp}
-              >
-                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <span className="font-bold text-xl">1</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Transaction Tax</h3>
-                  <p className="text-gray-300">5% tax is collected from every buy and sell transaction</p>
-                </div>
-              </motion.div>
-
-              {/* Step 2 */}
-              <motion.div
-                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
-                variants={fadeInUp}
-              >
-                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <span className="font-bold text-xl">2</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-white">USDT Conversion</h3>
-                  <p className="text-gray-300">All collected tax is automatically converted to USDT</p>
-                </div>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div
-                className="flex items-start mb-8 bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
-                variants={fadeInUp}
-              >
-                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <span className="font-bold text-xl">3</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Distribution</h3>
-                  <p className="text-gray-300">
-                    <span className="text-green-400 font-bold">80% (4%)</span> distributed to all $CASH holders<br />
-                    <span className="text-green-400 font-bold">10% (0.5%)</span> allocated for daily buybacks<br />
-                    <span className="text-green-400 font-bold">10% (0.5%)</span> for marketing and development
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Step 4 */}
-              <motion.div
-                className="flex items-start bg-black/50 p-6 rounded-lg hover:bg-black/80 transition-all duration-300"
-                variants={fadeInUp}
-              >
-                <div className="bg-green-400 text-black rounded-full w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <span className="font-bold text-xl">4</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Automatic Rewards</h3>
-                  <p className="text-gray-300">Rewards are automatically distributed every 5 minutes based on your proportional holdings</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Additional information */}
-          <motion.div
-            className="mt-16 text-center px-6"
-            variants={fadeInUp}
-            {...whileInViewSettings}
-          >
-            <div className="inline-block bg-green-400/10 border border-green-400 rounded-lg p-6">
-              <p className="text-green-400 font-medium">
-                Unlike similar tokens, $CASH includes dedicated buyback and marketing funds to ensure
-                continued price support and promotional activities for long-term sustainability.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* --- Stats Section --- */}
-      <motion.div
-        className='stats-container pt-[100px] pb-10'
-        variants={staggerContainer}
-        {...whileInViewSettings}
-      >
-        <div className='stats-grid'>
-          <motion.div className='stat-item' variants={fadeInUp}>
-            <h1 className='stat-number'>1 Billion</h1>
-            <p className='stat-label'>Total Supply</p>
-          </motion.div>
-          <motion.div className='stat-item' variants={fadeInUp}>
-            <h1 className='stat-number'>5%</h1>
-            <p className='stat-label'>Tax On Transactions</p>
-          </motion.div>
-          <motion.div className='stat-item' variants={fadeInUp}>
-            <h1 className='stat-number'>100%</h1>
-            <p className='stat-label'>LP Burned</p>
-          </motion.div>
-          <motion.div className='stat-item' variants={fadeInUp}>
-            <h1 className='stat-number'>100%</h1>
-            <p className='stat-label'>Community Owned</p>
-          </motion.div>
-          <motion.div className='stat-item' variants={fadeInUp}>
-            <h1 className='stat-number'>100%</h1>
-            <p className='stat-label'>Automated</p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* --- Explorer Link --- */}
-      <motion.div
-        className='explorer-link-container flex justify-center'
-        {...whileInViewSettings}
-        variants={fadeInUp}
-      >
-        <a href='https://explorer.solana.com/address/4pF7P8zfE6Xg88K54L2747KLBUSpe87Uj6aMfe42BhJ2'
-          className="explorer-link"
-        >
-          Click here to review $USDT reward distribution stats
-        </a>
-      </motion.div>
-
-      <motion.div
-        className='contact-us-container py-[100px] px-[20px] text-center md:px-[50px]' // Adjusted horizontal padding
-        {...whileInViewSettings}
-        variants={fadeInUp}
-      >
-        <h2 className='contact-us-title md:text-4xl text-2xl font-bold text-white pb-10'>Contact Us</h2>
-        <div className='contact-us-form-wrapper p-8 rounded-lg shadow-lg bg-[#1a1a1a]'> {/* Removed max-w-md and mx-auto */}
-          <p className='mb-6 text-gray-300'>We'd love to hear from you! Send us a message and we'll get back to you as soon as possible.</p>
-          <form className='contact-us-form grid grid-cols-1 gap-6'>
-            <div>
-              <label htmlFor="name" className='block text-gray-400 text-sm font-bold mb-2'>
-                <FontAwesomeIcon icon={faUser} className="mr-2" /> Name
-              </label>
-              <input type="text" id="name" className='contact-us-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition duration-300' placeholder="Your Name" />
-            </div>
-            <div>
-              <label htmlFor="email" className='block text-gray-400 text-sm font-bold mb-2'>
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Email
-              </label>
-              <input type="email" id="email" className='contact-us-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition duration-300' placeholder="Your Email" />
-            </div>
-            <div>
-              <label htmlFor="message" className='block text-gray-400 text-sm font-bold mb-2'>
-                <FontAwesomeIcon icon={faMessage} className="mr-2" /> Message
-              </label>
-              <textarea id="message" className='contact-us-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition duration-300' placeholder="Your Message"></textarea>
-            </div>
-            <button type="submit" className='contact-us-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300'>Send Message</button>
-          </form>
-        </div>
-      </motion.div>
-
-      {/* --- Final Details Section --- */}
-      {/* --- Final Details Section --- */}
-      <motion.div
-        className='final-details py-20 md:py-28 px-4 md:px-8 lg:px-16'
-        variants={staggerContainer}
-        {...whileInViewSettings}
-      >
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400"
-          variants={fadeInUp}
-        >
-          COMMITMENT TO TRANSPARENCY
-        </motion.h2>
-
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            variants={staggerContainer}
-            {...whileInViewSettings}
-          >
-            {/* Card 1 */}
-            <motion.div
-              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-green-400 p-2 rounded-lg mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white">100% Fair Launch</h3>
-              </div>
-              <p className="text-gray-300">
-                100% of the total supply is added to liquidity at launch with LP tokens locked. No team tokens, no presale, and no max wallet limits.
-              </p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-green-400 p-2 rounded-lg mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white">Anti-Rug Protection</h3>
-              </div>
-              <p className="text-gray-300">
-                Our locked liquidity and fair launch model ensures that this token can NEVER be rug-pulled, providing security for all holders.
-              </p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-green-400 p-2 rounded-lg mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white">Automatic Distribution</h3>
-              </div>
-              <p className="text-gray-300">
-                The 5% tax on transactions is automatically distributed every 5 minutes according to the formula outlined in our tokenomics.
-              </p>
-            </motion.div>
-
-            {/* Card 4 */}
-            <motion.div
-              className="bg-black/50 border border-green-400/30 rounded-xl p-6 hover:shadow-lg hover:shadow-green-400/10 transition-all duration-300"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-green-400 p-2 rounded-lg mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white">Reward Threshold</h3>
-              </div>
-              <p className="text-gray-300">
-                Wallets need to accumulate 0.01 USDT in pending rewards before distribution for economic efficiency (reducing gas costs).
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* Highlight Box */}
-          <motion.div
-            className="mt-12 bg-green-400/10 border-l-4 border-green-400 rounded-r-lg p-6"
-            variants={fadeInUp}
-            {...whileInViewSettings}
-          >
-            <h4 className="text-xl font-bold text-white mb-3">Equal Opportunity for All</h4>
-            <p className="text-gray-300">
-              Launch is 100% fair - even core developers and team members must purchase tokens on the open market if they wish to hold $CASH and receive rewards. This ensures complete alignment of incentives between the team and the community.
+      {/* How It Works Section */}
+      <div id="how-it-works" className="py-24 bg-black">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h6 className="text-green-400 font-medium mb-3">MECHANICS</h6>
+            <h2 className="text-3xl md:text-5xl font-bold">How Solana Cash Machine Works</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Our unique reward mechanism distributes USDT to all holders automatically and continuously.
             </p>
-          </motion.div>
-        </div>
-      </motion.div>
+          </div>
 
-      {/* --- Final Social Links --- */}
-      <motion.div
-        className='final-social flex flex-row gap-5 pt-10 pb-20 justify-center'
-        variants={staggerContainer}
-        {...whileInViewSettings}
-        transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
-      >
-        <motion.a variants={fadeInUp} href="https://t.me/SolanaCashMachine" className="group relative flex items-center justify-start px-3 w-[130px] h-[50px] gap-2 bg-sky-500 text-white rounded-xl border-none cursor-pointer overflow-hidden">
-          <svg className="w-[23px] h-[23px] transition-transform duration-800 ease-in-out group-hover:ml-10 group-hover:rotate-[50deg]" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g transform="scale(5.12,5.12)"><path d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z" /></g></svg>
-          <span className="text-white font-bold text-base transition-all duration-300 ease-in-out group-hover:hidden">Telegram</span>
-        </motion.a>
-        <motion.a variants={fadeInUp} href='https://x.com/SOLCashMachine' className="group relative flex items-center justify-start px-3 w-[130px] h-[50px] gap-2 bg-white text-black rounded-xl border-none cursor-pointer overflow-hidden">
-          <svg className="w-[23px] h-[23px] transition-transform duration-800 ease-in-out group-hover:ml-10 group-hover:rotate-[50deg]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20.207 3H17.1L12.92 8.227 8.4 3H3l7.92 9.486L3 21h3.106l4.602-5.813L15.6 21h5.4l-8.148-9.77L20.207 3ZM16.5 19.5l-4.852-5.828-1.385 1.773-3.779 4.055H7.5l5.484-6.602L7.5 4.5h1.5l4.398 5.283 1.265-1.605 3.984-4.178h1.5l-5.535 6.543L16.5 19.5Z" /></svg>
-          <span className="font-bold text-base transition-all duration-300 ease-in-out group-hover:hidden">Twitter</span>
-        </motion.a>
-      </motion.div>
-
-      {/* --- Footer Section --- */}
-      <footer className="bg-[#1a1a1a] text-gray-400 py-10 ">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="md:flex md:items-center md:justify-between">
-            {/* Left side - Copyright */}
-            <div className="mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} Solana Cash Machine. All rights reserved.
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Step 1 */}
+            <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green-400 to-green-500 text-black w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-400/20">
+                <span className="font-bold text-lg">1</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Transaction Tax</h3>
+              <p className="text-gray-400">
+                Every transaction is subject to a 5% tax, which is automatically collected by the smart contract.
+              </p>
             </div>
 
-            {/* Right side - Social Links */}
-            <div className="flex items-center space-x-4">
-              <a href="https://t.me/SolanaCashMachine" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                Telegram
-              </a>
-              <a href="https://x.com/SOLCashMachine" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                Twitter
-              </a>
-              {/* You can add more social media links here */}
+            {/* Step 2 */}
+            <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green-400 to-green-500 text-black w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-400/20">
+                <span className="font-bold text-lg">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">USDT Conversion</h3>
+              <p className="text-gray-400">
+                The collected tax is automatically swapped to USDT on decentralized exchanges.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green-400 to-green-500 text-black w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-400/20">
+                <span className="font-bold text-lg">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Distribution</h3>
+              <p className="text-gray-400">
+                80% of tax goes to holders, 10% to buybacks, and 10% to marketing and development.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green-400 to-green-500 text-black w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-400/20">
+                <span className="font-bold text-lg">4</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Automatic Rewards</h3>
+              <p className="text-gray-400">
+                Rewards are distributed every 5 minutes based on your proportional holdings.
+              </p>
             </div>
           </div>
-          <p className="mt-6 text-center text-xs text-gray-500">
-            Disclaimer: Cryptocurrency investments are highly risky and may lead to financial loss. Please do your own research before investing.
-          </p>
+
+          <div className="mt-16 bg-gradient-to-r from-green-400/5 to-purple-500/5 rounded-xl border border-white/5 p-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="md:w-2/3">
+                <h3 className="text-2xl font-bold mb-4">Beyond Traditional Reward Systems</h3>
+                <p className="text-gray-400">
+                  Unlike similar tokens, $CASH includes dedicated buyback and marketing funds to ensure continued price support and promotional activities for long-term sustainability.
+                </p>
+              </div>
+              <div className="md:w-1/3 flex justify-center">
+                <a href="https://explorer.solana.com/address/4pF7P8zfE6Xg88K54L2747KLBUSpe87Uj6aMfe42BhJ2" className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-black font-medium rounded-md hover:from-green-500 hover:to-green-600 transition-all duration-300 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Distribution Stats
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Tokenomics Section */}
+      <div id="tokenomics" className="py-24 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-0 w-1/3 h-64 bg-green-400/5 rounded-full filter blur-[100px]"></div>
+          <div className="absolute bottom-1/4 right-0 w-1/4 h-64 bg-purple-500/5 rounded-full filter blur-[100px]"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h6 className="text-green-400 font-medium mb-3">TOKENOMICS</h6>
+            <h2 className="text-3xl md:text-5xl font-bold">Transparent Token Economics</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Our unique tokenomics model focuses on sustainability, holder rewards, and long-term growth.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Supply */}
+            <div className="bg-black/20 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-4 text-green-400">Token Supply</h3>
+              <div className="mb-6">
+                <div className="flex justify-between mb-1">
+                  <span className="text-gray-400">Total Supply</span>
+                  <span>1 Billion</span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-2 mb-4">
+                  <div className="bg-green-400 h-2 rounded-full w-full"></div>
+                </div>
+
+                <div className="flex justify-between mb-1">
+                  <span className="text-gray-400">Circulating Supply</span>
+                  <span>1 Billion</span>
+                </div>
+                <div className="w-full bg-gray-800 rounded-full h-2">
+                  <div className="bg-green-400 h-2 rounded-full w-full"></div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-400">
+                100% of the total supply is added to liquidity at launch with LP tokens locked. No team tokens, no presale allocations.
+              </p>
+            </div>
+
+            {/* Transaction Tax */}
+            <div className="bg-black/20 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-4 text-green-400">Transaction Tax</h3>
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-400">Holder Rewards</span>
+                    <span>4%</span>
+                  </div>
+                  <div className="w-full bg-gray-800 rounded-full h-2">
+                    <div className="bg-green-400 h-2 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-400">Buybacks</span>
+                    <span>0.5%</span>
+                  </div>
+                  <div className="w-full bg-gray-800 rounded-full h-2">
+                    <div className="bg-green-400 h-2 rounded-full" style={{ width: '10%' }}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-gray-400">Marketing</span>
+                    <span>0.5%</span>
+                  </div>
+                  <div className="w-full bg-gray-800 rounded-full h-2">
+                    <div className="bg-green-400 h-2 rounded-full" style={{ width: '10%' }}></div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-400">
+                5% tax on every transaction ensures continuous reward generation and project sustainability.
+              </p>
+            </div>
+
+            {/* Security */}
+            <div className="bg-black/20 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
+              <h3 className="text-xl font-bold mb-4 text-green-400">Security Features</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center">
+                  <div className="bg-green-400 p-1 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-black" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-300">Liquidity Locked 100%</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="bg-green-400 p-1 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-black" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-300">Contract Verified & Audited</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="bg-green-400 p-1 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-black" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-300">100% Fair Launch</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="bg-green-400 p-1 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-black" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-300">Smart Contract Automation</span>
+                </li>
+              </ul>
+              <p className="text-sm text-gray-400">
+                Our locked liquidity and fair launch model ensures that this token can NEVER be rug-pulled.
+              </p>
+            </div>
+          </div>
+
+          {/* Fair Launch Highlight */}
+          <div className="mt-16 text-center">
+            <div className="inline-block bg-gradient-to-r from-green-400/10 to-green-400/5 border border-green-400/20 rounded-xl py-4 px-8">
+              <h3 className="text-2xl font-bold text-green-400 mb-2">REAL FAIR LAUNCH</h3>
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mt-4">
+                <div className="flex items-center">
+                  <div className="bg-green-400/20 p-1 rounded-full mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="font-medium">NO TEAM TOKENS</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="bg-green-400/20 p-1 rounded-full mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="font-medium">NO PRESALE</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="bg-green-400/20 p-1 rounded-full mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="font-medium">NO MAX WALLET LIMITS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div id="stats" className="py-24 bg-black">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h6 className="text-green-400 font-medium mb-3">KEY METRICS</h6>
+            <h2 className="text-3xl md:text-5xl font-bold">Solana Cash Machine Stats</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Transparent and verifiable statistics that showcase our project's growth and stability.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6">
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-green-400/30 transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">1B</h3>
+              <p className="text-gray-400 text-sm">Total Supply</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-green-400/30 transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">5%</h3>
+              <p className="text-gray-400 text-sm">Transaction Tax</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-green-400/30 transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">100%</h3>
+              <p className="text-gray-400 text-sm">LP Burned</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-green-400/30 transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">100%</h3>
+              <p className="text-gray-400 text-sm">Community Owned</p>
+            </div>
+
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-green-400/30 transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">100%</h3>
+              <p className="text-gray-400 text-sm">Automated</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Me Section */}
+      <div id="contact" className="py-24 bg-gradient-to-b from-gray-900 to-black">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h6 className="text-green-400 font-medium mb-3">CONTACT</h6>
+            <h2 className="text-3xl md:text-5xl font-bold">Get In Touch</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Have questions or feedback? We'd love to hear from you.
+            </p>
+          </div>
+
+          <div className="max-w-lg mx-auto bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-800">
+            <p className="text-lg text-gray-300 mb-6">
+              For general inquiries, please join our Telegram community. For business or partnership opportunities, please reach out via email.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <h5 className="text-lg font-medium text-green-400">Telegram Community</h5>
+                <p className="text-gray-300">
+                  <a href="https://t.me/SolanaCashMachine" className="hover:text-green-400 transition-colors">Join our Telegram group</a>
+                </p>
+              </div>
+              <div>
+                <h5 className="text-lg font-medium text-green-400">Email</h5>
+                <p className="text-gray-300">
+                  <a href="mailto:info@solanacashmachine.com" className="hover:text-green-400 transition-colors">info@solanacashmachine.com</a>
+                </p>
+              </div>
+              {/* You can add more contact methods here if needed */}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div id="faq" className="py-24 bg-black">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h6 className="text-green-400 font-medium mb-3">FAQ</h6>
+            <h2 className="text-3xl md:text-5xl font-bold">Frequently Asked Questions</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Find answers to common questions about Solana Cash Machine.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
+              <h4 className="text-xl font-semibold text-green-400 mb-2">What is Solana Cash Machine?</h4>
+              <p className="text-gray-300">
+                Solana Cash Machine ($CASH) is a cryptocurrency on the Solana blockchain that features an automatic USDT rewards system. Holders receive USDT directly to their wallets every 5 minutes just by holding $CASH.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
+              <h4 className="text-xl font-semibold text-green-400 mb-2">How do I earn USDT rewards?</h4>
+              <p className="text-gray-300">
+                You automatically earn USDT rewards by holding $CASH tokens in your Solana wallet. Rewards are distributed every 5 minutes based on the proportion of $CASH you hold.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
+              <h4 className="text-xl font-semibold text-green-400 mb-2">What is the transaction tax?</h4>
+              <p className="text-gray-300">
+                There is a 5% tax on every $CASH transaction. This tax is allocated as follows: 80% for USDT rewards to holders, 10% for buybacks, and 10% for marketing and development.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
+              <h4 className="text-xl font-semibold text-green-400 mb-2">Is Solana Cash Machine secure?</h4>
+              <p className="text-gray-300">
+                Yes, security is a top priority. The liquidity pool is 100% locked, and the smart contract has been verified and audited. We also had a fair launch with no team tokens or presale, ensuring a community-owned project.
+              </p>
+            </div>
+
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
+              <h4 className="text-xl font-semibold text-green-400 mb-2">Where can I buy $CASH?</h4>
+              <p className="text-gray-300">
+                You can buy $CASH on decentralized exchanges (DEXs) on the Solana network, such as Jupiter. Links to the chart and buy options are available on our website.
+              </p>
+            </div>
+
+            {/* Add more FAQ items as needed */}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-900 py-12">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center md:text-left">
+              <h6 className="text-green-400 font-bold mb-4">$CASH</h6>
+              <p className="text-gray-400 text-sm">
+                The ultimate Solana cash machine, rewarding holders with USDT every 5 minutes.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <h6 className="text-green-400 font-bold mb-4">Quick Links</h6>
+              <ul className="space-y-2">
+                <li><a href="#how-it-works" className="text-gray-400 hover:text-green-400 transition-colors text-sm">How It Works</a></li>
+                <li><a href="#tokenomics" className="text-gray-400 hover:text-green-400 transition-colors text-sm">Tokenomics</a></li>
+                <li><a href="#stats" className="text-gray-400 hover:text-green-400 transition-colors text-sm">Stats</a></li>
+                <li><a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors text-sm">Contact Us</a></li>
+                <li><a href="#faq" className="text-gray-400 hover:text-green-400 transition-colors text-sm">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div className="text-center md:text-right">
+              <h6 className="text-green-400 font-bold mb-4">Follow Us</h6>
+              <div className="flex justify-center md:justify-end space-x-4">
+                <a href="https://t.me/SolanaCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
+                  {/* Add Telegram Icon here - you might need to install a library like react-icons */}
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.657 8.343l-8.928 3.571c-.336.134-.336.504 0 .638l3.214 1.286 1.286 3.214c.134.336.504.336.638 0l3.571-8.928c.268-.67.067-1.407-.603-1.675-.67-.268-1.407-.067-1.675.603z" />
+                  </svg>
+                </a>
+                {/* Add other social media icons here */}
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center text-gray-500 text-xs">
+            &copy; {new Date().getFullYear()} Solana Cash Machine. All rights reserved.
+          </div>
         </div>
       </footer>
-
-
     </div>
   );
 }
