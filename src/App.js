@@ -254,14 +254,13 @@ function App() {
         </a>
       </motion.div>
 
-      {/* --- Contact Us Section --- */}
       <motion.div
-        className='contact-us-container py-[100px] px-[50px] text-center'
+        className='contact-us-container py-[100px] px-[20px] text-center md:px-[50px]' // Adjusted horizontal padding
         {...whileInViewSettings}
         variants={fadeInUp}
       >
         <h2 className='contact-us-title md:text-4xl text-2xl font-bold text-white pb-10'>Contact Us</h2>
-        <div className='contact-us-form-wrapper max-w-md mx-auto p-8 rounded-lg shadow-lg bg-[#1a1a1a]'>
+        <div className='contact-us-form-wrapper p-8 rounded-lg shadow-lg bg-[#1a1a1a]'> {/* Removed max-w-md and mx-auto */}
           <p className='mb-6 text-gray-300'>We'd love to hear from you! Send us a message and we'll get back to you as soon as possible.</p>
           <form className='contact-us-form grid grid-cols-1 gap-6'>
             <div>
@@ -289,7 +288,7 @@ function App() {
 
       {/* --- Final Details Section --- */}
       <motion.div
-        className='final-details px-10 text-green-400 py-10 mt-10'
+        className='final-details px-5 md:px-10 text-green-400 py-10 mt-10'
         variants={staggerContainer}
         {...whileInViewSettings}
       >

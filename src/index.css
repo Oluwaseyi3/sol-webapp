@@ -306,12 +306,22 @@ body {
   color: #4CAF50;
 }
 
-/* Contact Us Section Styling */
 .contact-us-container {
   background-color: #111111;
   /* A slightly lighter background */
   padding-top: 100px;
   padding-bottom: 100px;
+  padding-left: 20px;
+  /* Default horizontal padding */
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .contact-us-container {
+    padding-left: 50px;
+    /* Adjust for larger screens */
+    padding-right: 50px;
+  }
 }
 
 .contact-us-title {
@@ -383,4 +393,23 @@ body {
   color: #aaa;
   font-size: 0.9rem;
   text-align: left;
+}
+
+/* Final Details Section Styling - Responsive Padding */
+.final-details {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: #888888;
+  line-height: 1.7;
+  padding-left: 20px;
+  /* Default horizontal padding */
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .final-details {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
