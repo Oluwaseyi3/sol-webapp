@@ -119,7 +119,7 @@ function App() {
 
       {/* --- DexTools Links Section --- */}
       <motion.div
-        className='dextools-links px-10 font-bold text-3xl mt-10 pt-[80px] py-5 md:pt-[130px] flex flex-col items-center md:flex-row justify-around text-green-400'
+        className='dextools-links px-10 font-bold text-3xl  pt-[10px] py-5 md:pt-[40px] flex flex-col items-center md:flex-row justify-around text-green-400'
         variants={staggerContainer}
         {...whileInViewSettings}
       >

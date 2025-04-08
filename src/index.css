@@ -47,7 +47,15 @@ body {
   background-color: #000000;
   /* Set background to fully black */
   padding-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
+  /* Reduced padding-bottom */
+}
+
+/* DexTools Links Section Styling */
+.dextools-links {
+  padding-top: 60px;
+  /* Reduced padding-top */
+  padding-bottom: 40px;
 }
 
 .hero-title {
