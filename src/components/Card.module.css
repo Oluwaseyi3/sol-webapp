@@ -1,0 +1,39 @@
+/* components/Card.module.css */
+.card {
+    background-color: #1a1a1a;
+    /* Darker background for cards */
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    /* Ensure cards take full width in their container */
+    max-width: 350px;
+    /* Set a maximum width */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.card-second-description {
+    font-size: 1rem;
+    color: #888888;
+    line-height: 1.5;
+    margin-top: 5px;
+}

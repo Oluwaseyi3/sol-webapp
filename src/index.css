@@ -22,3 +22,365 @@
   font-weight: 700;
   font-style: italic;
 }
+
+
+
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* General Reset and Base Styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  /* Example professional font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-spacemono {
+  font-family: 'Space Mono', monospace;
+  /* Keeping this for specific elements if you like */
+}
+
+/* Hero Section Styling */
+.hero-container {
+  background-color: #000000;
+  /* Set background to fully black */
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .button {
+  /* Assuming your Button component adds a "button" class */
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.hero-buttons .button:first-child {
+  background-color: #4CAF50;
+  /* A more vibrant green */
+  color: white;
+  border: none;
+}
+
+.hero-buttons .button:first-child:hover {
+  background-color: #45a049;
+}
+
+.hero-buttons .button:nth-child(2) {
+  background-color: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+
+.hero-buttons .button:nth-child(2):hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.hero-buttons .button:last-child {
+  background-color: #2196F3;
+  /* A different accent color */
+  color: white;
+  border: none;
+}
+
+.hero-buttons .button:last-child:hover {
+  background-color: #1e88e5;
+}
+
+.hero-ca {
+  color: #888888;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.hero-social a {
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.hero-social a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* DexTools Links Section Styling */
+.dextools-links {
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.dextools-links a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.dextools-links a:hover {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.dextools-links p {
+  margin: 0;
+  /* Remove default paragraph margins */
+}
+
+/* How It Works Section Styling */
+.how-it-works {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.how-it-works-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.how-it-works-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+.how-it-works-text p {
+  padding: 8px 0;
+}
+
+.how-it-works-image {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats Section Styling */
+.stats-container {
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+/* Explorer Link Styling */
+.explorer-link-container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.explorer-link {
+  display: inline-block;
+  background-color: #2196F3;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.explorer-link:hover {
+  background-color: #1e88e5;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Final Details Section Styling */
+.final-details {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: #888888;
+  line-height: 1.7;
+}
+
+.final-details p {
+  margin-bottom: 15px;
+}
+
+/* Final Social Links Styling */
+.final-social {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.final-social a {
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.final-social a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Fair Launch Section Styling */
+.fair-launch {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.fair-launch-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  /* Keep text white on black background */
+  margin-bottom: 40px;
+}
+
+.fair-launch-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 70px;
+}
+
+@media (min-width: 768px) {
+  .fair-launch-points {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.fair-launch-points p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+/* Contact Us Section Styling */
+.contact-us-container {
+  background-color: #111111;
+  /* A slightly lighter background */
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.contact-us-title {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-us-form-wrapper {
+  border-radius: 10px;
+}
+
+.contact-us-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.contact-us-input,
+.contact-us-textarea {
+  background-color: #222;
+  color: #cccccc;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.contact-us-input:focus,
+.contact-us-textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.contact-us-input::placeholder,
+.contact-us-textarea::placeholder {
+  color: #888;
+}
+
+.contact-us-textarea {
+  min-height: 150px;
+}
+
+.contact-us-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-us-button:hover {
+  background-color: #45a049;
+}
+
+.contact-us-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+}
+
+.contact-us-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: left;
+}
