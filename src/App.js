@@ -96,7 +96,7 @@ function App() {
               <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-lg">
                 <div className="flex items-center justify-between mb-8">
                   <h3 className="text-xl font-medium">Real-Time Rewards</h3>
-                  <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm">LIVE</span>
+                  {/* <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm">LIVE</span> */}
                 </div>
 
                 <div className="space-y-6">
