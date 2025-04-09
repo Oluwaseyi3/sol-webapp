@@ -51,7 +51,7 @@ function App() {
 
       {/* Hero Section with Animated Gradient Background */}
       {/* Hero Section with Animated Gradient Background */}
-      <div className="relative min-h-screen flex lg:items-center items-start pt-16 lg:pt-0 overflow-hidden">
+      <div className="relative flex items-center pt-16 lg:pt-20 overflow-hidden md:min-h-0 sm:min-h-0">
         {/* Background Animation */}
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute w-full h-[500px] bottom-0 bg-gradient-to-t from-black to-transparent z-10"></div>
@@ -60,10 +60,10 @@ function App() {
           <div className="absolute w-full lg:w-2/3 h-[2px] top-[60%] left-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-sm"></div>
         </div>
 
-        <div className="container mx-auto px-4 lg:px-6 z-20">
+        <div className="container mx-auto px-4 lg:pt-10 pt-0 lg:px-6 z-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-0">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+            <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-5">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 Solana Cash Machine
                 <span className="block text-green-400 mt-2">USDT Rewards Every 5 Minutes</span>
               </h1>
@@ -139,23 +139,25 @@ function App() {
           </div>
         </div>
 
-        {/* Trusted By */}
-        <div id="featured-on-section" className="absolute bottom-0 left-0 right-0 z-20 short:hidden">
-          <div className="container mx-auto px-6 py-12">
-            <p className="text-center text-gray-500 mb-6 pt-5 text-sm">FEATURED ON</p>
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <a href='https://www.dextools.io/app/en/solana/pair-explorer/Fqti16kJDid3uEJr3y81xrsN6PgzkeD9g7c5JhNfpaW6?t=1741409414783'> <span className="text-xl font-medium">DexTools</span></a>
-              </div>
-              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <a href='https://dexscreener.com/solana/fqti16kjdid3uejr3y81xrsn6pgzked9g7c5jhnfpaw6?__cf_chl_rt_tk=yRWm4JxcXF7gaXx7ihKkukhanaGfI2Ta78LuxPN9BPg-1744158872-1.0.1.1-DFP3twZs5PmOrUnOwqMmwj..Hu0tQwjEftnSBq1R3KY'><span className="text-xl font-medium">DexScreener</span></a>
-              </div>
-              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <a href='https://gmgn.ai/sol/token/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK'><span className="text-xl font-medium">GMGN</span></a>
-              </div>
-              <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <span className="text-xl font-medium">Solana FM</span>
-              </div>
+
+      </div>
+
+      {/* Trusted By */}
+      <div id="featured-on-section" className="">
+        <div className="container mx-auto px-6 py-12">
+          <p className="text-center text-gray-500 mb-6 pt-5 text-sm">FEATURED ON</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://www.dextools.io/app/en/solana/pair-explorer/Fqti16kJDid3uEJr3y81xrsN6PgzkeD9g7c5JhNfpaW6?t=1741409414783'> <span className="text-xl font-medium">DexTools</span></a>
+            </div>
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://dexscreener.com/solana/fqti16kjdid3uejr3y81xrsn6pgzked9g7c5jhnfpaw6?__cf_chl_rt_tk=yRWm4JxcXF7gaXx7ihKkukhanaGfI2Ta78LuxPN9BPg-1744158872-1.0.1.1-DFP3twZs5PmOrUnOwqMmwj..Hu0tQwjEftnSBq1R3KY'><span className="text-xl font-medium">DexScreener</span></a>
+            </div>
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://gmgn.ai/sol/token/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK'><span className="text-xl font-medium">GMGN</span></a>
+            </div>
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <span className="text-xl font-medium">Solana FM</span>
             </div>
           </div>
         </div>
