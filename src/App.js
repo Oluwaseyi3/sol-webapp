@@ -113,12 +113,12 @@ function App() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
                       <p className="text-gray-400 text-sm">Total Rewards</p>
-                      <p className="text-xl font-medium mt-1">15,426 USDT</p>
+                      <p className="text-xl font-medium mt-1"> USDT</p>
                     </div>
-                    <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
+                    {/* <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
                       <p className="text-gray-400 text-sm">Holders</p>
                       <p className="text-xl font-medium mt-1">2,184</p>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="bg-green-400/10 border border-green-400/30 rounded-lg p-4">
@@ -145,13 +145,13 @@ function App() {
             <p className="text-center text-gray-500 mb-6 pt-5 text-sm">FEATURED ON</p>
             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
               <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <span className="text-xl font-medium">DexTools</span>
+                <a href='https://www.dextools.io/app/en/solana/pair-explorer/Fqti16kJDid3uEJr3y81xrsN6PgzkeD9g7c5JhNfpaW6?t=1741409414783'> <span className="text-xl font-medium">DexTools</span></a>
               </div>
               <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <span className="text-xl font-medium">DexScreener</span>
+                <a href='https://dexscreener.com/solana/fqti16kjdid3uejr3y81xrsn6pgzked9g7c5jhnfpaw6?__cf_chl_rt_tk=yRWm4JxcXF7gaXx7ihKkukhanaGfI2Ta78LuxPN9BPg-1744158872-1.0.1.1-DFP3twZs5PmOrUnOwqMmwj..Hu0tQwjEftnSBq1R3KY'><span className="text-xl font-medium">DexScreener</span></a>
               </div>
               <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-                <span className="text-xl font-medium">GMGN</span>
+                <a href='https://gmgn.ai/sol/token/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK'><span className="text-xl font-medium">GMGN</span></a>
               </div>
               <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
                 <span className="text-xl font-medium">Solana FM</span>
