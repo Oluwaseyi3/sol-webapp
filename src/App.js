@@ -61,6 +61,9 @@ function App() {
             <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-3 py-2 lg:px-6 lg:py-2 bg-green-400 text-black text-sm lg:text-base font-medium rounded-md hover:bg-green-500 transition-all duration-300">
               Buy Now
             </a>
+            <a href="https://solcashmachine.ngrok.app/" className="px-3 py-2 lg:px-6 lg:py-2 bg-green-400 text-black text-sm lg:text-base font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+              Play $CASH Casino
+            </a>
           </div>
         </div>
       </nav>
@@ -170,7 +173,7 @@ function App() {
           <div className="text-center mb-16">
             <h6 className="text-green-400 font-medium mb-3">MECHANICS</h6>
             <h2 className="text-3xl md:text-5xl font-bold">How Solana Cash Machine Works</h2>
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-400 mt-4 max-w-3xl mx-auto">
               Our unique reward mechanism distributes USDT to all holders automatically and continuously.
             </p>
           </div>
@@ -237,7 +240,7 @@ function App() {
           <div className="text-center mb-16">
             <h6 className="text-green-400 font-medium mb-3">TOKENOMICS</h6>
             <h2 className="text-3xl md:text-5xl font-bold">Transparent Token Economics</h2>
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-400 mt-4 max-w-3xl mx-auto">
               Our unique tokenomics model focuses on sustainability, holder rewards, and long-term growth.
             </p>
           </div>
