@@ -2,8 +2,22 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
+import fx from "./images/fx.jpg"
 
 function App() {
+  const [copied, setCopied] = useState(false);
+
+  const textToCopy = "CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500); // Reset copied after 1.5s
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
   // Animation settings for sections to animate when they come into view
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -78,22 +92,53 @@ function App() {
                 <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="w-full sm:w-auto px-6 py-3 bg-green-400 text-black text-center font-medium rounded-md hover:bg-green-500 transition-all duration-300">
                   Buy $CASH Now
                 </a>
+                <a href="https://solcashmachine.ngrok.app/" className="w-full sm:w-auto px-6 py-3 bg-green-400 text-black text-center font-medium rounded-md hover:bg-green-500 transition-all duration-300">
+                  Play $CASH Casino
+                </a>
                 <a href="https://t.me/SolanaCashMachine" className="w-full sm:w-auto px-6 py-3 border border-white/30 text-center hover:border-green-400 rounded-md hover:bg-black/30 transition-all duration-300">
                   Join Community
                 </a>
               </div>
 
+
+              <div className="flex justify-start space-x-4">
+                <a href="https://x.com/SOLCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
+                  {/* Add Telegram Icon here - you might need to install a library like react-icons */}
+                  <FaXTwitter />
+
+                </a>
+                <a href="https://t.me/SolanaCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
+                  {/* Add Telegram Icon here - you might need to install a library like react-icons */}
+                  <FaTelegram />
+
+                </a>
+                {/* Add other social media icons here */}
+              </div>
+
               <div className="pt-4 lg:pt-6">
                 <p className="text-sm text-gray-400">Contract Address:</p>
-                <div className="overflow-hidden">
-                  <p className="text-xs sm:text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1 overflow-auto whitespace-nowrap">
-                    CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK
+                <div className="relative inline-block w-full">
+                  <p
+                    onClick={handleCopy}
+                    className="text-xs sm:text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1 overflow-auto whitespace-nowrap cursor-pointer hover:bg-black/40 transition"
+                    title={copied ? "Copied!" : "Click to copy"}
+                  >
+                    {textToCopy}
                   </p>
+
+                  {/* Copied badge */}
+                  {copied && (
+                    <div className="absolute top-0 right-0 mt-[-30px] mr-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md shadow-md opacity-90">
+                      Copied!
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
 
-
+            <div className="relative hidden lg:block">
+              <img src={fx} alt="" />
+            </div>
           </div>
         </div>
 
@@ -103,7 +148,7 @@ function App() {
       {/* Trusted By */}
       <div id="featured-on-section" className="">
         <div className="container mx-auto px-6 py-12">
-          <p className="text-center text-gray-500 mb-6 pt-5 text-sm">FEATURED ON</p>
+          <p className="text-center text-gray-500 mb-6 pt-5 text-base">CHECK STATS ON</p>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
             <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
               <a href='https://www.dextools.io/app/en/solana/pair-explorer/Fqti16kJDid3uEJr3y81xrsN6PgzkeD9g7c5JhNfpaW6?t=1741409414783'> <span className="text-xl font-medium">DexTools</span></a>
@@ -171,7 +216,7 @@ function App() {
               </div>
               <h3 className="text-xl font-bold mb-3">Automatic Rewards</h3>
               <p className="text-gray-400">
-                Rewards are distributed every 5 minutes based on your proportional holdings.
+                Rewards are distributed every few minutes based on your proportional holdings.
               </p>
             </div>
           </div>
@@ -444,14 +489,14 @@ function App() {
             <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
               <h4 className="text-xl font-semibold text-green-400 mb-2">What is Solana Cash Machine?</h4>
               <p className="text-gray-300">
-                Solana Cash Machine ($CASH) is a cryptocurrency on the Solana blockchain that features an automatic USDT rewards system. Holders receive USDT directly to their wallets every 5 minutes just by holding $CASH.
+                Solana Cash Machine ($CASH) is a cryptocurrency on the Solana blockchain that features an automatic USDT rewards system. Holders receive USDT directly to their wallets every few minutes just by holding $CASH.
               </p>
             </div>
 
             <div className="bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-800">
               <h4 className="text-xl font-semibold text-green-400 mb-2">How do I earn USDT rewards?</h4>
               <p className="text-gray-300">
-                You automatically earn USDT rewards by holding $CASH tokens in your Solana wallet. Rewards are distributed every 5 minutes based on the proportion of $CASH you hold.
+                You automatically earn USDT rewards by holding $CASH tokens in your Solana wallet. Rewards are distributed every few minutes based on the proportion of $CASH you hold.
               </p>
             </div>
 
@@ -488,7 +533,7 @@ function App() {
             <div className="text-center md:text-left">
               <h6 className="text-green-400 font-bold mb-4">$CASH</h6>
               <p className="text-gray-400 text-sm">
-                The ultimate Solana cash machine, rewarding holders with USDT every 5 minutes.
+                The ultimate Solana cash machine, rewarding holders with USDT every few minutes.
               </p>
             </div>
 
