@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa";
 
 function App() {
   // Animation settings for sections to animate when they come into view
@@ -65,7 +67,7 @@ function App() {
             <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-5">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 Solana Cash Machine
-                <span className="block text-green-400 mt-2">USDT Rewards Every 5 Minutes</span>
+                <span className="block text-green-400 mt-2">USDT Rewards Every Few Minutes</span>
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-300">
@@ -91,51 +93,7 @@ function App() {
               </div>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-purple-500 rounded-lg blur opacity-30"></div>
-              <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 p-8 rounded-lg">
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-xl font-medium">Real-Time Rewards</h3>
-                  {/* <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm">LIVE</span> */}
-                </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-400">Next Distribution</span>
-                      <span className="font-medium">mins</span>
-                    </div>
-                    {/* <div className="w-full bg-gray-800 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full" style={{ width: '65%' }}></div>
-                    </div> */}
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
-                      <p className="text-gray-400 text-sm">Total Rewards</p>
-                      <p className="text-xl font-medium mt-1"> USDT</p>
-                    </div>
-                    {/* <div className="bg-black/50 p-4 rounded-lg border border-gray-800">
-                      <p className="text-gray-400 text-sm">Holders</p>
-                      <p className="text-xl font-medium mt-1">2,184</p>
-                    </div> */}
-                  </div>
-
-                  <div className="bg-green-400/10 border border-green-400/30 rounded-lg p-4">
-                    <div className="flex items-start">
-                      <div className="bg-green-400 p-1 rounded-md mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-gray-300">
-                        Your rewards are proportional to your holdings. The more $CASH you hold, the more $USDT you earn.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -156,9 +114,7 @@ function App() {
             <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
               <a href='https://gmgn.ai/sol/token/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK'><span className="text-xl font-medium">GMGN</span></a>
             </div>
-            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
-              <span className="text-xl font-medium">Solana FM</span>
-            </div>
+
           </div>
         </div>
       </div>
@@ -220,24 +176,7 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-16 bg-gradient-to-r from-green-400/5 to-purple-500/5 rounded-xl border border-white/5 p-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold mb-4">Beyond Traditional Reward Systems</h3>
-                <p className="text-gray-400">
-                  Unlike similar tokens, $CASH includes dedicated buyback and marketing funds to ensure continued price support and promotional activities for long-term sustainability.
-                </p>
-              </div>
-              <div className="md:w-1/3 flex justify-center">
-                <a href="https://explorer.solana.com/address/4pF7P8zfE6Xg88K54L2747KLBUSpe87Uj6aMfe42BhJ2" className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-black font-medium rounded-md hover:from-green-500 hover:to-green-600 transition-all duration-300 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  View Distribution Stats
-                </a>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
 
@@ -435,6 +374,24 @@ function App() {
               <p className="text-gray-400 text-sm">Automated</p>
             </div>
           </div>
+          <div className="mt-16 bg-gradient-to-r from-green-400/5 to-purple-500/5 rounded-xl border border-white/5 p-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="md:w-2/3">
+                <h3 className="text-2xl font-bold mb-4">Beyond Traditional Reward Systems</h3>
+                <p className="text-gray-400">
+                  Unlike similar tokens, $CASH includes dedicated buyback and marketing funds to ensure continued price support and promotional activities for long-term sustainability.
+                </p>
+              </div>
+              <div className="md:w-1/3 flex justify-center">
+                <a href="https://explorer.solana.com/address/4pF7P8zfE6Xg88K54L2747KLBUSpe87Uj6aMfe42BhJ2" className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-black font-medium rounded-md hover:from-green-500 hover:to-green-600 transition-all duration-300 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Distribution Stats
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -549,11 +506,15 @@ function App() {
             <div className="text-center md:text-right">
               <h6 className="text-green-400 font-bold mb-4">Follow Us</h6>
               <div className="flex justify-center md:justify-end space-x-4">
+                <a href="https://x.com/SOLCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
+                  {/* Add Telegram Icon here - you might need to install a library like react-icons */}
+                  <FaXTwitter />
+
+                </a>
                 <a href="https://t.me/SolanaCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
                   {/* Add Telegram Icon here - you might need to install a library like react-icons */}
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.657 8.343l-8.928 3.571c-.336.134-.336.504 0 .638l3.214 1.286 1.286 3.214c.134.336.504.336.638 0l3.571-8.928c.268-.67.067-1.407-.603-1.675-.67-.268-1.407-.067-1.675.603z" />
-                  </svg>
+                  <FaTelegram />
+
                 </a>
                 {/* Add other social media icons here */}
               </div>
