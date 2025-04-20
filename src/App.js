@@ -112,8 +112,7 @@ function App() {
 
               {activeTab === 'cash' && (
                 <div className="space-y-4 animate-fadeIn">
-                  <h2 className="text-xl font-bold text-green-400">Solana Cash Machine</h2>
-                  <p className="text-gray-300">Receive USDT rewards automatically every few minutes just by holding.</p>
+
 
                   <div className="flex justify-start space-x-4">
                     <a href="https://x.com/SOLCashMachine" className="text-gray-400 hover:text-green-400 transition-colors">
@@ -139,6 +138,21 @@ function App() {
                           Copied!
                         </div>
                       )}
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <p className="text-sm text-gray-400">$PRNTR Contract Address:</p>
+                    <div className="relative inline-block w-full">
+                      <p
+                        onClick={() => handleCopy('cash')}
+                        className="text-xs sm:text-sm font-mono bg-black/30 p-2 rounded-md border border-gray-800 mt-1 overflow-auto whitespace-nowrap cursor-pointer hover:bg-black/40 transition"
+                        title={copied.cash ? "Copied!" : "Click to copy"}
+                      >
+                        Coming soon
+                      </p>
+
                     </div>
                   </div>
                 </div>
@@ -192,7 +206,22 @@ function App() {
       {/* Trusted By */}
       <div className="bg-black">
         <div className="container mx-auto px-6 py-12">
-          <p className="text-center text-gray-500 mb-6 pt-5 text-base">CHECK STATS ON</p>
+          <p className="text-center text-gray-500 mb-6 pt-5 text-base">CHECK $CASH STATS ON</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://www.dextools.io/'> <span className="text-xl font-medium">DexTools</span></a>
+            </div>
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://dexscreener.com/'><span className="text-xl font-medium">DexScreener</span></a>
+            </div>
+            <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
+              <a href='https://gmgn.ai/'><span className="text-xl font-medium">GMGN</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-6 py-12">
+          <p className="text-center text-gray-500 mb-6 pt-5 text-base">CHECK $PRNTR STATS ON</p>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
             <div className="text-gray-400 opacity-50 hover:opacity-80 transition-opacity">
               <a href='https://www.dextools.io/'> <span className="text-xl font-medium">DexTools</span></a>
@@ -257,7 +286,7 @@ function App() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-gray-300">1% goes to LP to ensure liquidity</span>
+                  <span className="text-gray-300">1% goes to buy backs</span>
                 </li>
               </ul>
 
@@ -289,7 +318,7 @@ function App() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-gray-300">6% buys $CASH and distributes to $PRNTR holders</span>
+                  <span className="text-gray-300">5% buys $CASH and distributes to $PRNTR holders</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-purple-400/20 p-1 rounded-full mr-3 mt-1">
@@ -297,7 +326,7 @@ function App() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-gray-300">2% goes to marketing and development</span>
+                  <span className="text-gray-300">3% goes to marketing and development</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-purple-400/20 p-1 rounded-full mr-3 mt-1">
@@ -355,7 +384,7 @@ function App() {
               </div>
               <h3 className="text-xl font-bold mb-4">Receive Rewards</h3>
               <p className="text-gray-400">
-                $CASH holders receive USDT rewards while $PRNTR holders receive $CASH tokens directly to their wallets with each transaction.
+                $CASH holders receive USDT rewards while $PRNTR holders receive $CASH tokens directly to their wallets every few minutes.
               </p>
             </div>
           </div>
@@ -459,19 +488,8 @@ function App() {
               </p>
             </div>
 
-            <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all">
-              <h3 className="text-xl font-bold mb-4">How does the casino benefit token holders?</h3>
-              <p className="text-gray-400">
-                Every casino bet generates volume for the $CASH token, which triggers the reward distribution mechanism. This means more USDT rewards for $CASH holders and more $CASH for $PRNTR holders.
-              </p>
-            </div>
 
-            <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-green-400/30 transition-all">
-              <h3 className="text-xl font-bold mb-4">Are the smart contracts audited?</h3>
-              <p className="text-gray-400">
-                Yes, both $CASH and $PRNTR smart contracts have undergone thorough security audits. The audit reports are available on our GitHub repository and linked from our documentation page.
-              </p>
-            </div>
+
           </div>
         </div>
       </div>
@@ -488,9 +506,6 @@ function App() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Ready to Start Earning?
             </h2>
-            <p className="text-xl text-gray-300 mb-10">
-              Join thousands of holders already benefiting from the Solana Cash ecosystem.
-            </p>
 
             <div className="flex flex-wrap justify-center gap-4">
               <a href="https://jup.ag/tokens/CvkCfadCfCUc319WNhWnaYH6xAZCS7VNQEQM8nxQC1sK" className="px-8 py-3 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-colors">
