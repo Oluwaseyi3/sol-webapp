@@ -1,5 +1,6 @@
 {
   "name": "sol",
+  "homepage": "https://solcashmachine.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
