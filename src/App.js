@@ -118,7 +118,7 @@ function App() {
             <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-5">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 The <span className='text-green-400'>$CASH</span>  Ecosystem:
-                <span className="block text-2xl pt-2 sm:text-3xl lg:text-4xl  mt-2"> Solana Cash Machine <span className='text-green-400'>($CASH)</span>+ CASH Printer <span className='text-green-400'>($PRNTR)</span></span>
+                <span className="block text-2xl pt-2 sm:text-3xl lg:text-4xl  mt-2"> Solana Cash Machine <span className='text-green-400'>($CASH)</span> + <br /> CASH Printer <span className='text-green-400'>($PRNTR)</span></span>
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-300">
@@ -133,7 +133,7 @@ function App() {
                   $PRNTR
                 </button>
                 <a href="https://solcashmachine.com/casino" className="w-full sm:w-auto px-6 py-3 border border-white/30 text-center hover:border-green-400 rounded-md hover:bg-black/30 transition-all duration-300">
-                  Play Casino
+                  $CASH Casino
                 </a>
               </div>
 
@@ -245,7 +245,7 @@ function App() {
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Track Our Tokens
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
               Monitor the performance of $CASH and $PRNTR on leading decentralized platforms.
             </p>
           </div>
@@ -411,7 +411,7 @@ function App() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-gray-300">2% goes to LP to ensure liquidity</span>
+                  <span className="text-gray-300">2% gets burned</span>
                 </li>
               </ul>
 
@@ -515,7 +515,7 @@ function App() {
               </div>
 
               <a href="https://solcashmachine.com/casino" className="inline-block px-8 py-3 mt-4 bg-green-400 text-black font-medium rounded-md hover:bg-green-500 transition-colors">
-                Launch Casino
+                $CASH Casino
               </a>
             </div>
 
@@ -592,7 +592,7 @@ function App() {
                 Buy $PRNTR
               </a>
               <a href="https://solcashmachine.com/casino" className="px-8 py-3 border border-white/30 rounded-md hover:bg-black/30 hover:border-green-400 transition-all">
-                Play Casino
+                $CASH Casino
               </a>
             </div>
           </div>
@@ -632,15 +632,6 @@ function App() {
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-lg font-medium mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Whitepaper</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-green-400 transition-colors">GitHub</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Audit Report</a></li>
-              </ul>
-            </div>
 
             <div>
               <h4 className="text-lg font-medium mb-4">Exchanges</h4>
